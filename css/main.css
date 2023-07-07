@@ -468,9 +468,6 @@ header .logo {
 .form-section .test-wrap.small {
   width: 100px;
 }
-.form-section .test-wrap.middle {
-  /* width: 200px; */
-}
 .form-section .test-wrap.large {
   width: 300px;
 }
@@ -488,6 +485,7 @@ header .logo {
 .form-section .checkbox-wrap input + span {
   padding-left: 40px;
   position: relative;
+  line-height: 1.8;
 }
 .form-section .checkbox-wrap input + span::before {
   content: '';

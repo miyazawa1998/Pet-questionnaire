@@ -326,7 +326,7 @@
                   </div>
                   <div class="textarea-wrap chack-exizo-textarea">
                     <p class="item-name">動物の種類</p>
-                    <textarea id="other_exizopets" name="other_exizopets" rows="8" cols="80"></textarea>
+                    <textarea id="other_exizopets" name="other_exizopets" rows="8" cols="80" placeholder="例：チンチラ１匹、モルモット1匹"></textarea>
                     <div class="counter"><span class="js-textCounter exizopets_count">500</span>文字</div>
                   </div>
                   <div class="checkbox-wrap">
@@ -349,7 +349,7 @@
                   </div>
                   <div class="textarea-wrap chack-textarea">
                     <p class="item-name">その他の動物</p>
-                    <textarea id="other_pets" name="other_pets" rows="8" cols="80"></textarea>
+                    <textarea id="other_pets" name="other_pets" rows="8" cols="80" placeholder="例：マイクロブタ"></textarea>
                     <div class="counter"><span class="js-textCounter pets_count">500</span>文字</div>
                   </div>
                   <!-- 多頭飼い向け -->
@@ -438,7 +438,7 @@
                   </div>
                   <div class="textarea-wrap chack-shop-textarea">
                     <p class="item-name">その他のお店</p>
-                    <textarea id="other_shop" name="other_shop" rows="8" cols="80"></textarea>
+                    <textarea id="other_shop" name="other_shop" rows="8" cols="80" placeholder="例：引退犬を引き取り"></textarea>
                     <div class="counter"><span class="js-textCounter shop_count">500</span>文字</div>
                   </div>
                 </div>
@@ -610,7 +610,7 @@
                 <div class="form-section-wrap">
                   <p class="item-name">6：ペットを迎えて一番良かったと感じたことはなんですか？</p>
                   <div class="textarea-wrap">
-                    <textarea id="pets_good" name="pets_good" rows="8" cols="80"　placeholder="例：チンチラは毎日砂浴びが必要なため、部屋に砂が舞う。"></textarea>
+                    <textarea id="pets_good" name="pets_good" rows="8" cols="80" placeholder="例：生きる糧になること。"></textarea>
                     <div class="counter"><span class="js-textCounter good_count">500</span>文字</div>
                   </div>
                 </div>
@@ -651,7 +651,7 @@
                   </div>
                   <div class="textarea-wrap chack-reason-textarea">
                     <p class="item-name">その他の理由</p>
-                    <textarea id="pets_hard" name="pets_hard" rows="8" cols="80"></textarea>
+                    <textarea id="pets_hard" name="pets_hard" rows="8" cols="80" placeholder="例：チンチラが診察可能な病院を近くで探すこと。"></textarea>
                     <div class="counter"><span class="js-textCounter hard_count">500</span>文字</div>
                   </div>
                 </div>
@@ -661,7 +661,7 @@
                 <div class="form-section-wrap">
                   <p class="item-name">8：飼育するうえで、他の方に知ってほしいことはありますか。</p>
                   <div class="textarea-wrap">
-                    <textarea  id="other_countDown" name="pets_info" rows="8" cols="80"　placeholder="例：チンチラは毎日砂浴びが必要なため、部屋に砂が舞う。"></textarea>
+                    <textarea  id="other_countDown" name="pets_info" rows="8" cols="80" placeholder="例：チンチラは毎日砂浴びが必要なため、部屋に砂が舞う。"></textarea>
                     <div class="counter"><span class="js-textCounter other_count">500</span>文字</div>
                   </div>
                 </div>
