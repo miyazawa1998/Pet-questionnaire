@@ -29,9 +29,9 @@
                 </div>
               </div>
               <div class="mypets">
-                <img src="images/yasuji.jpg" alt="やすじの写真">
-                <img src="images/poh.jpg" alt="ぽうの写真">
-                <img src="images/baron.jpg" alt="バロンの写真">
+                <img src="images/yasuji.webp" alt="やすじの写真">
+                <img src="images/poh.webp" alt="ぽうの写真">
+                <img src="images/baron.webp" alt="バロンの写真">
               </div>
             </div>
           </section>

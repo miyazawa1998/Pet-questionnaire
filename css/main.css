@@ -337,6 +337,14 @@ header .logo {
   padding: 24px;
   padding-top: 22px;
 }
+.how_many{
+  width: 100%;
+}
+.how_many input{
+  text-align: center;
+  font-size: 16px;
+  width: 90% !important;
+}
 .form-section .form-section-wrap .item-name {
   font-size: 16px;
   letter-spacing: 0.1px;
@@ -363,9 +371,6 @@ header .logo {
 
 /* サンクスページ
 ------------------------------------- */
-.mypets{
-  
-}
 .mypets img{
   width: 100px;
   height: 100px;
@@ -442,6 +447,7 @@ header .logo {
 }
 .form-section .test-wrap .form-bottom {
   border-bottom: solid #dadce0 1px;
+  width: 100%;
 }
 .form-section .test-wrap.active .form-bottom {
   border-bottom-color: #487cff;
@@ -463,7 +469,7 @@ header .logo {
   width: 100px;
 }
 .form-section .test-wrap.middle {
-  width: 200px;
+  /* width: 200px; */
 }
 .form-section .test-wrap.large {
   width: 300px;
@@ -485,14 +491,14 @@ header .logo {
 }
 .form-section .checkbox-wrap input + span::before {
   content: '';
-  background-image: url(../images/non-chackbox.png);
+  background-image: url(../images/non-check.webp);
   background-size: contain;
   display: block;
   position: absolute;
   top: -2px;
   left: 0;
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   zoom: 150%;
 }
 .form-section .checkbox-wrap input:checked + span {
@@ -501,7 +507,7 @@ header .logo {
 }
 .form-section .checkbox-wrap input:checked + span::after {
   content: '';
-  background-image: url(../images/chackbox.png);
+  background-image: url(../images/checked.webp);
   background-size: contain;
   display: block;
   position: absolute;
@@ -537,8 +543,11 @@ header .logo {
 
 .chack-textarea,
 .chack-exizo-textarea,
+.chack-many-textarea,
 .chack-shop-textarea,
-.chack-reason-textarea{
+.chack-reason-textarea,
+.chack-manycost-textarea,
+.chack-medical-textarea{
   display: none;
 }
 
@@ -597,13 +606,13 @@ header .logo {
   .form-section .test-wrap.small {
     width: 200px;
   }
-  .form-section .test-wrap.middle {
-    width: 400px;
-  }
+
   .form-section .test-wrap.large {
     width: 600px;
   }
-
+  .form-section .test-wrap .form-bottom {
+    width: 20%;
+  }
   .mypets img:nth-child(1){
     left: 22%;
   }
@@ -618,5 +627,8 @@ header .logo {
   }
   .thanks-text{
     margin-top: 3rem;
+  }
+  .how_many input{
+    width: 20% !important;
   }
 }

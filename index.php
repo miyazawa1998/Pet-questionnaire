@@ -16,6 +16,10 @@
       $pets_good= array();
       $pets_hard= array();
       $pets_info= array();
+      $manyPets = array(); // 追加
+      $other_shop = array(); // 追加
+      $many_pets_cost = array(); // 追加
+      $medical_pets_cost = array(); // 追加
 
       // 飼い主に関する回答
       $selectedAges = $_POST['age'];
@@ -38,8 +42,24 @@
         $otherExizoPets[] = $_POST['other_exizopets'];
       }
  
-      if (in_array('その他の動物', $selectedHard)) {
+      if (in_array('その他の動物', $selectedPets)) {
         $otherPets[]= $_POST['other_pets'];
+      }
+
+      if (in_array('多頭飼いの方', $selectedPets)) {
+        $manyPets[]= $_POST['many_pets'];
+      }
+
+      if (in_array('その他のお店', $selectedWelcome)) {
+        $other_shop[]= $_POST['other_shop'];
+      }
+
+      if (in_array('多頭飼いの方', $selectedLiving_expenses)) {
+        $many_pets_cost[]= $_POST['many_pets-cost'];
+      }
+
+      if (in_array('多頭飼いの方', $selectedMedical_bills)) {
+        $medical_pets_cost[]= $_POST['medical_pets-cost'];
       }
 
       if (in_array('その他の理由', $selectedHard)) {
@@ -75,7 +95,11 @@
         $hard[] = $Hard;
       }
  
-      $data =array_merge($ages, $people, $allergies, $lifestyle,$pets,$otherExizoPets,$otherPets,$welcome,$living_expenses,$medical_bills,$pets_good,$hard,$pets_hard,$pets_info);
+      $data =array_merge($ages, $people, $allergies, $lifestyle,$pets,
+                          $otherExizoPets,$otherPets,$manyPets,$welcome,
+                          $other_shop,$living_expenses,$many_pets_cost,
+                          $medical_bills,$medical_pets_cost,$pets_good,
+                          $hard,$pets_hard,$pets_info);
      
       $output = implode("\n", $data);
       file_put_contents(date("YmdHis"). ".txt", $output);
@@ -270,8 +294,18 @@
               </section>
 
               <section class="form-section">
+                <div class="form-section-wrap how_many">
+                  <p class="item-name">1：何匹飼育していますか</p>
+                  <div class="test-wrap middle">
+                    <input name="text" value="" placeholder=""> 匹 
+                    <div class="form-bottom"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section">
                 <div class="form-section-wrap">
-                  <p class="item-name">1：飼育している動物の種類を教えてください。(複数の項目選択可)</p>
+                  <p class="item-name">2：飼育している動物の種類を教えてください。</p>
                   <div class="checkbox-wrap">
                     <label id="pets[]">
                       <input type="checkbox" name="pets[]" value="犬" />
@@ -291,7 +325,7 @@
                     </label>
                   </div>
                   <div class="textarea-wrap chack-exizo-textarea">
-                    <p class="item-name">その他の動物</p>
+                    <p class="item-name">動物の種類</p>
                     <textarea id="other_exizopets" name="other_exizopets" rows="8" cols="80"></textarea>
                     <div class="counter"><span class="js-textCounter exizopets_count">500</span>文字</div>
                   </div>
@@ -318,12 +352,24 @@
                     <textarea id="other_pets" name="other_pets" rows="8" cols="80"></textarea>
                     <div class="counter"><span class="js-textCounter pets_count">500</span>文字</div>
                   </div>
+                  <!-- 多頭飼い向け -->
+                  <div class="checkbox-wrap">
+                    <label id="pets[]">
+                      <input type="checkbox" name="pets[]" value="多頭飼いの方" />
+                      <span>多頭飼いの方</span>
+                    </label>
+                  </div>
+                  <div class="textarea-wrap chack-many-textarea">
+                    <p class="item-name">動物の種類・数</p>
+                    <textarea id="many_pets" name="many_pets" rows="8" cols="80" placeholder="例：犬1匹、猫２匹"></textarea>
+                    <div class="counter"><span class="js-textCounter many_count">500</span>文字</div>
+                  </div>
                 </div>
               </section>
 
               <section class="form-section">
                 <div class="form-section-wrap">
-                  <p class="item-name">2：現在飼っているペットはどこでお迎えましたか？(複数の項目選択可)</p>
+                  <p class="item-name">3：現在飼っているペットはどこでお迎えましたか？(複数の項目選択可)</p>
                   <div class="checkbox-wrap">
                     <label id="welcome[]">
                       <input type="checkbox" name="welcome[]" value="ペットショップ（路面店）" />
@@ -391,7 +437,7 @@
                     </label>
                   </div>
                   <div class="textarea-wrap chack-shop-textarea">
-                    <p class="item-name">その他の理由</p>
+                    <p class="item-name">その他のお店</p>
                     <textarea id="other_shop" name="other_shop" rows="8" cols="80"></textarea>
                     <div class="counter"><span class="js-textCounter shop_count">500</span>文字</div>
                   </div>
@@ -400,7 +446,7 @@
 
               <section class="form-section">
                 <div class="form-section-wrap">
-                  <p class="item-name">3：.ペット一頭あたりの生活費用はひと月平均でいくらかかっていますか？(複数の項目選択可)</p>
+                  <p class="item-name">4：.ペット一頭あたりの生活費用はひと月平均でいくらかかっていますか？(複数の項目選択可)</p>
                   <div class="checkbox-wrap">
                     <label id="living_expenses[]">
                       <input type="checkbox" name="living_expenses[]" value="5,000円未満" />
@@ -461,12 +507,24 @@
                       <span>わからない</span>
                     </label>
                   </div>
+                  <!-- 多頭飼い向け -->
+                  <div class="checkbox-wrap">
+                    <label id="living_expenses[]">
+                      <input type="checkbox" name="living_expenses[]" value="多頭飼いの方" />
+                      <span>多頭飼いの方</span>
+                    </label>
+                  </div>
+                  <div class="textarea-wrap chack-manycost-textarea">
+                    <p class="item-name">動物の種類・費用</p>
+                    <textarea id="many_pets-cost" name="many_pets-cost" rows="8" cols="80" placeholder="例：チンチラ1匹5,000円〜10,000円未満、モルモット1匹5,000円未満"></textarea>
+                    <div class="counter"><span class="js-textCounter many_cost_count">500</span>文字</div>
+                  </div>
                 </div>
               </section>
 
               <section class="form-section">
                 <div class="form-section-wrap">
-                  <p class="item-name">4：ペット一頭あたりの医療費はひと月平均でいくらかかっていますか？(複数の項目選択可)</p>
+                  <p class="item-name">5：ペット一頭あたりの医療費はひと月平均でいくらかかっていますか？(複数の項目選択可)</p>
                   <div class="checkbox-wrap">
                     <label id="medical_bills[]">
                       <input type="checkbox" name="medical_bills[]" value="1,000円未満" />
@@ -527,12 +585,30 @@
                       <span>特にかかっていない（病気をしていない）</span>
                     </label>
                   </div>
+                  <div class="checkbox-wrap">
+                    <label ID="medical_bills[]">
+                      <input type="checkbox" name="medical_bills[]" value="わからない" />
+                      <span>わからない</span>
+                    </label>
+                  </div>
+                  <!-- 多頭飼い向け -->
+                  <div class="checkbox-wrap">
+                    <label id="medical_bills[]">
+                      <input type="checkbox" name="medical_bills[]" value="多頭飼いの方" />
+                      <span>多頭飼いの方</span>
+                    </label>
+                  </div>
+                  <div class="textarea-wrap chack-medical-textarea">
+                    <p class="item-name">動物の種類・費用</p>
+                    <textarea id="medical_pets-cost" name="medical_pets-cost" rows="8" cols="80" placeholder="例：チンチラ1匹3,000円〜4,000未満(歯の治療のため)、モルモット1匹0円(病気をしていない)"></textarea>
+                    <div class="counter"><span class="js-textCounter medical_cost_count">500</span>文字</div>
+                  </div>
                 </div>
               </section>
 
               <section class="form-section">
                 <div class="form-section-wrap">
-                  <p class="item-name">5：ペットを迎えて一番良かったと感じたことはなんですか？</p>
+                  <p class="item-name">6：ペットを迎えて一番良かったと感じたことはなんですか？</p>
                   <div class="textarea-wrap">
                     <textarea id="pets_good" name="pets_good" rows="8" cols="80"　placeholder="例：チンチラは毎日砂浴びが必要なため、部屋に砂が舞う。"></textarea>
                     <div class="counter"><span class="js-textCounter good_count">500</span>文字</div>
@@ -542,7 +618,7 @@
 
               <section class="form-section">
                 <div class="form-section-wrap">
-                  <p class="item-name">6：ペットを迎えて一番大変だと感じたことはなんですか？(複数の項目選択可)</p>
+                  <p class="item-name">7：ペットを迎えて一番大変だと感じたことはなんですか？(複数の項目選択可)</p>
                   <div class="checkbox-wrap">
                     <label id="hard[]">
                       <input type="checkbox" name="hard[]" value="しつけ全般（トイレトレーニング、無駄吠え、夜中の運動など）" />
@@ -583,7 +659,7 @@
 
               <section class="form-section">
                 <div class="form-section-wrap">
-                  <p class="item-name">7：飼育するうえで、他の方に知ってほしいことはありますか。</p>
+                  <p class="item-name">8：飼育するうえで、他の方に知ってほしいことはありますか。</p>
                   <div class="textarea-wrap">
                     <textarea  id="other_countDown" name="pets_info" rows="8" cols="80"　placeholder="例：チンチラは毎日砂浴びが必要なため、部屋に砂が舞う。"></textarea>
                     <div class="counter"><span class="js-textCounter other_count">500</span>文字</div>
